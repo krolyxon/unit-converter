@@ -36,6 +36,7 @@ int main() {
   clearscr();
   printf(COLOR_MAGENTA);
   print_image("./ascii/banner.txt");
+  print_image("./priv/priv.txt");
   printf(COLOR_RESET);
   printf("\n[1] Unit Converter");
   printf("\n[2] Currency Converter");
@@ -91,19 +92,19 @@ void conv_temp() {
   case 1:
     printf("\nPlease enter the temperature in Fahrenheit: ");
     scanf("%d", &fahrenheit);
-    printf("\nThe temperature in Celcius is: %f°C", (fahrenheit - 32) / 1.8);
+    printf("\nThe temperature in Celcius is: %f°C\n", (fahrenheit - 32) / 1.8);
     break;
 
   case 2:
     printf("\nPlease enter the temperature in Celcius: ");
     scanf("%d", &celcius);
-    printf("\nThe temperature in Fahrenheit is: %f°F", (celcius * 1.8) + 32);
+    printf("\nThe temperature in Fahrenheit is: %f°F\n", (celcius * 1.8) + 32);
     break;
 
   case 3:
     printf("\nPlease enter the temperature in Fahrenheit: ");
     scanf("%d", &fahrenheit);
-    printf("\nThe temperature in kelvin is: %f°K",
+    printf("\nThe temperature in kelvin is: %f°K\n",
            (fahrenheit + 459.67) * 5 / 9);
     break;
 
@@ -164,25 +165,25 @@ void conv_mass() {
   case 1:
     printf("Please enter the ounce amount: ");
     scanf("%f", &value);
-    printf("Pounds: %.2f", value * 0.0625);
+    printf("Pounds: %.2f\n", value * 0.0625);
     break;
 
   case 2:
     printf("Please enter the gram amount: ");
     scanf("%f", &value);
-    printf("Pounds: %.2f", value * 0.00220462);
+    printf("Pounds: %.2f\n", value * 0.00220462);
     break;
 
   case 3:
     printf("Please enter the pounds amount: ");
     scanf("%f", &value);
-    printf("Kilogram : %.2f", value / 2.2046);
+    printf("Kilogram : %.2f\n", value / 2.2046);
     break;
 
   case 4:
     printf("Please enter the Kilograms ammount: ");
     scanf("%f", &value);
-    printf("%.2f Grams", value * 1000);
+    printf("%.2f Grams\n", value * 1000);
     break;
 
   default:
