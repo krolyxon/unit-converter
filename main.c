@@ -6,29 +6,21 @@
 #include <string.h>
 #define MAX_LEN 128
 
+#define COLOR_RED "\x1b[31m"
+#define COLOR_GREEN "\x1b[32m"
+#define COLOR_YELLOW "\x1b[33m"
+#define COLOR_BLUE "\x1b[34m"
+#define COLOR_MAGENTA "\x1b[35m"
+#define COLOR_CYAN "\x1b[36m"
+#define COLOR_RESET "\x1b[0m"
+
 int uchoice;
-int cchoice;
 int category;
 int tempChoice;
 int currencyChoice;
 int massChoice;
-int userinputF;         // User inputted Fahreinheit;
-int userinputC;         // User inputted Celsius;
-int userinputUSDtoEuro; // User inputted for USD to EURO;
-int userinputUSDtoJPY;  // User inputted for USD to JPY;
-int userinputUSDtoRMB;  // User inputted for USD to RMB;
-int userinputOunce;     // User inputted for Ounce;
-float userinputPound;
-float userinputKg;
-int userinputGram; // User inputted for Gram;
 int fahrenheit;
 int celcius;
-float USDtoEURO;     // varaible that stores the converted USD->EURO;
-float USDtoJPY;      // stores the converted USD->JPY;
-float USDtoRMB;      // stores the converted USD->RMB;
-float ounceToPounds; // stores the converted Ounce->Pounds;
-float poundToKg;
-float gramsToPounds; // stores the vonerted Grams->Pounds;
 
 void print_image(char *filename);
 void clearscr();
@@ -42,7 +34,9 @@ void conv_temp();
 
 int main() {
   clearscr();
+  printf(COLOR_MAGENTA);
   print_image("./ascii/banner.txt");
+  printf(COLOR_RESET);
   printf("\n[1] Unit");
   printf("\n[2] Currency");
   printf("\n[3] Exit");
@@ -56,8 +50,6 @@ int main() {
   case 2:
     conv_currency();
     break;
-  case 3:
-    return 0;
   default:
     return 0;
   }
@@ -65,7 +57,9 @@ int main() {
 
 void ask_unit() {
   clearscr();
+  printf(COLOR_MAGENTA);
   print_image("./ascii/unit.txt");
+  printf(COLOR_RESET);
   printf("\n[1] Mass");
   printf("\n[2] Lenght");
   printf("\n[3] Temperature");
@@ -78,23 +72,22 @@ void ask_unit() {
   case 2:
     conv_length();
     break;
-    case 3: conv_temp(); break;
+  case 3:
+    conv_temp();
+    break;
   }
 }
 
 // Function to convert temperatures
 void conv_temp() {
-  float choice, value;
-  int ichoice;
-
+  float value;
   printf("\n[1] Convert Fahrenheit to Celcius");
   printf("\n[2] Convert Celcius to Fahrenheit");
   printf("\n[3] Convert Fahrenheit to Kelvin");
   printf("\n[4] Convert Celcius to Kelvin");
   printf("\nPlease choose a method from above: ");
-  scanf("%f", &choice);
-  ichoice = choice;
-  switch (ichoice) {
+  scanf("%d", &tempChoice);
+  switch (tempChoice) {
   case 1:
     printf("\nPlease enter the temperature in Fahrenheit: ");
     scanf("%d", &fahrenheit);
@@ -157,7 +150,8 @@ void conv_length() {
 
 // Function to convert mass
 void conv_mass() {
-  printf("Welcome to Mass Converter! \n");
+  float value;
+  printf("\nWelcome to Mass Converter! \n");
   printf("Here is a list of conversations to choose from: \n");
   printf("[1] ounces to pounds\n");
   printf("[2] gram to pounds\n");
@@ -165,57 +159,108 @@ void conv_mass() {
   printf("[4] kilograms to gram\n");
   printf("Please enter your choice: ");
   scanf("%d", &massChoice);
-  if (massChoice == 1) {
+
+  switch (massChoice) {
+  case 1:
     printf("Please enter the ounce amount: ");
-    scanf("%d", &userinputOunce);
-    ounceToPounds = userinputOunce * 0.0625;
-    printf("Pounds: %.2f", ounceToPounds);
-  } else if (massChoice == 2) {
+    scanf("%f", &value);
+    printf("Pounds: %.2f", value * 0.0625);
+    break;
+
+  case 2:
     printf("Please enter the gram amount: ");
-    scanf("%d", &userinputGram);
-    gramsToPounds = userinputGram * 0.00220462;
-    printf("Pounds: %.2f", gramsToPounds);
-  } else if (massChoice == 3) {
+    scanf("%f", &value);
+    printf("Pounds: %.2f", value * 0.00220462);
+    break;
+
+  case 3:
     printf("Please enter the pounds amount: ");
-    scanf("%f", &userinputPound);
-    poundToKg = userinputPound / 2.2046;
-    printf("Kilogram : %.2f", poundToKg);
-  } else if (massChoice == 4) {
+    scanf("%f", &value);
+    printf("Kilogram : %.2f", value / 2.2046);
+    break;
+
+  case 4:
     printf("Please enter the Kilograms ammount: ");
-    scanf("%f", &userinputKg);
-    printf("%.2f Grams", userinputKg * 1000);
-  } else {
+    scanf("%f", &value);
+    printf("%.2f Grams", value * 1000);
+    break;
+
+  default:
     printf("Please enter the correct choice. \n");
+    break;
   }
 }
 
 void conv_currency() {
+  int value;
   clearscr();
+  printf(COLOR_MAGENTA);
   print_image("./ascii/currency.txt");
+  printf(COLOR_RESET);
   printf("Here is a list of conversations to choose from: \n");
   printf("1) USD to Euro. \n");
   printf("2) USD to JPY. \n");
   printf("3) USD to RMB. \n");
+  printf("4) USD to INR. \n");
+  printf("5) INR to USD. \n");
+  printf("6) INR to JPY. \n");
+  printf("7) INR to Euro. \n");
+  printf("8) Euro to INR. \n");
   printf("Please choose a currency to convert to: ");
   scanf("%d", &currencyChoice);
-  if (currencyChoice == 1) {
+
+  switch (currencyChoice) {
+  case 1:
     printf("Please enter the USD amount: ");
-    scanf("%d", &userinputUSDtoEuro);
-    USDtoEURO = userinputUSDtoEuro * 0.87;
-    printf("Euro: %.2f\n",
-           USDtoEURO); // %.2f = rounds the float to only 2 decimal places;
-  } else if (currencyChoice == 2) {
+    scanf("%d", &value);
+    printf("Euro: %.2f\n", value * 0.87);
+    break;
+
+  case 2:
     printf("Please enter the USD amount: ");
-    scanf("%d", &userinputUSDtoJPY);
-    USDtoJPY = userinputUSDtoJPY * 111.09;
-    printf("JPY: %.2f\n", USDtoJPY);
-  } else if (currencyChoice == 3) {
+    scanf("%d", &value);
+    printf("JPY: %.2f\n", value * 111.09);
+    break;
+
+  case 3:
     printf("Please enter the USD amount: ");
-    scanf("%d", &userinputUSDtoRMB);
-    USDtoRMB = userinputUSDtoRMB * 6.82;
-    printf("RMB: %.2f\n", USDtoRMB);
-  } else
+    scanf("%d", &value);
+    printf("RMB: %.2f\n", value * 6.82);
+    break;
+
+  case 4:
+    printf("Please enter the USD amount: ");
+    scanf("%d", &value);
+    printf("INR: %.2f\n", value * 81.0);
+    break;
+
+  case 5:
+    printf("Please enter the amount in INR: ");
+    scanf("%d", &value);
+    printf("USD: %.2f\n", value / 81.0);
+    break;
+
+  case 6:
+    printf("Please enter the amount in INR: ");
+    scanf("%d", &value);
+    printf("JPY: %.2f\n", value / 1.62);
+    break;
+
+  case 7:
+    printf("Please enter the amount in INR: ");
+    scanf("%d", &value);
+    printf("Euro: %.2f\n", value / 0.01);
+    break;
+
+  case 8:
+    printf("Please enter the amount in EUR: ");
+    scanf("%d", &value);
+    printf("INR: %.2f\n", value * 89.19);
+    break;
+
+  default:
     printf("Please enter correct choice. ");
+  }
 }
 
 // Function to print the banner
