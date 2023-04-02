@@ -37,8 +37,8 @@ int main() {
   printf(COLOR_MAGENTA);
   print_image("./ascii/banner.txt");
   printf(COLOR_RESET);
-  printf("\n[1] Unit");
-  printf("\n[2] Currency");
+  printf("\n[1] Unit Converter");
+  printf("\n[2] Currency Converter");
   printf("\n[3] Exit");
   printf("\nPlease choose a Category: ");
   scanf("%d", &category);
