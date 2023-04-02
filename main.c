@@ -20,13 +20,13 @@ int userinputUSDtoRMB;  // User inputted for USD to RMB;
 int userinputOunce;     // User inputted for Ounce;
 float userinputPound;
 float userinputKg;
-int userinputGram;       // User inputted for Gram;
-int fahrenheitToCelcius; // variable that stores the converted F->C;
-int celciusToFahrenheit; // variable that stores the converted C->F;
-float USDtoEURO;         // varaible that stores the converted USD->EURO;
-float USDtoJPY;          // stores the converted USD->JPY;
-float USDtoRMB;          // stores the converted USD->RMB;
-float ounceToPounds;     // stores the converted Ounce->Pounds;
+int userinputGram; // User inputted for Gram;
+int fahrenheit;
+int celcius;
+float USDtoEURO;     // varaible that stores the converted USD->EURO;
+float USDtoJPY;      // stores the converted USD->JPY;
+float USDtoRMB;      // stores the converted USD->RMB;
+float ounceToPounds; // stores the converted Ounce->Pounds;
 float poundToKg;
 float gramsToPounds; // stores the vonerted Grams->Pounds;
 
@@ -42,10 +42,10 @@ void conv_temp();
 
 int main() {
   clearscr();
-  print_image("img/banner.txt");
-  printf("\n1. Unit");
-  printf("\n2. Currency");
-  printf("\n3. Exit");
+  print_image("./ascii/banner.txt");
+  printf("\n[1] Unit");
+  printf("\n[2] Currency");
+  printf("\n[3] Exit");
   printf("\nPlease choose a Category: ");
   scanf("%d", &category);
 
@@ -64,10 +64,12 @@ int main() {
 }
 
 void ask_unit() {
-  printf("\n1. Mass");
-  printf("\n2. Lenght");
-  printf("\n3. Temperature");
-  printf("\nPlease choose a unit conversion method: ");
+  clearscr();
+  print_image("./ascii/unit.txt");
+  printf("\n[1] Mass");
+  printf("\n[2] Lenght");
+  printf("\n[3] Temperature");
+  printf("\n[Please choose a unit conversion method: ");
   scanf("%d", &uchoice);
   switch (uchoice) {
   case 1:
@@ -76,23 +78,65 @@ void ask_unit() {
   case 2:
     conv_length();
     break;
-    // case 3: conv_temp(); break;
+    case 3: conv_temp(); break;
+  }
+}
+
+// Function to convert temperatures
+void conv_temp() {
+  float choice, value;
+  int ichoice;
+
+  printf("\n[1] Convert Fahrenheit to Celcius");
+  printf("\n[2] Convert Celcius to Fahrenheit");
+  printf("\n[3] Convert Fahrenheit to Kelvin");
+  printf("\n[4] Convert Celcius to Kelvin");
+  printf("\nPlease choose a method from above: ");
+  scanf("%f", &choice);
+  ichoice = choice;
+  switch (ichoice) {
+  case 1:
+    printf("\nPlease enter the temperature in Fahrenheit: ");
+    scanf("%d", &fahrenheit);
+    printf("\nThe temperature in Celcius is: %f°C", (fahrenheit - 32) / 1.8);
+    break;
+
+  case 2:
+    printf("\nPlease enter the temperature in Celcius: ");
+    scanf("%d", &celcius);
+    printf("\nThe temperature in Fahrenheit is: %f°F", (celcius * 1.8) + 32);
+    break;
+
+  case 3:
+    printf("\nPlease enter the temperature in Fahrenheit: ");
+    scanf("%d", &fahrenheit);
+    printf("\nThe temperature in kelvin is: %f°K",
+           (fahrenheit + 459.67) * 5 / 9);
+    break;
+
+  case 4:
+    printf("\nPlease enter the temperature in celcius: ");
+    scanf("%d", &celcius);
+    printf("\nThe temperature in kelvin is: %f°K", (celcius + 273.15));
+    break;
+
+  default:
+    printf("Invalid choice, please enter the correct one");
   }
 }
 
 // Function to convert lenghts
 void conv_length() {
   float choice, value;
-
+  int ichoice;
   // millimeters, centimeter, meters, kilometer
-  printf("\n1) Millimeter to Centimeter\n");
-  printf("2) Centimeter to Meter\n");
-  printf("3) Meter to Kilometers\n");
+  printf("\n[1] Millimeter to Centimeter\n");
+  printf("[2] Centimeter to Meter\n");
+  printf("[3] Meter to Kilometers\n");
   printf("Please choose a method: ");
   scanf("%f", &choice);
-
-  int lol = choice;
-  switch (lol) {
+  ichoice = choice;
+  switch (ichoice) {
   case 1:
     printf("\nPlease enter the value in Milimeters: ");
     scanf("%f", &value);
@@ -115,10 +159,10 @@ void conv_length() {
 void conv_mass() {
   printf("Welcome to Mass Converter! \n");
   printf("Here is a list of conversations to choose from: \n");
-  printf("1) ounces to pounds\n");
-  printf("2) gram to pounds\n");
-  printf("3) pounds to kilograms\n");
-  printf("4) kilograms to gram\n");
+  printf("[1] ounces to pounds\n");
+  printf("[2] gram to pounds\n");
+  printf("[3] pounds to kilograms\n");
+  printf("[4] kilograms to gram\n");
   printf("Please enter your choice: ");
   scanf("%d", &massChoice);
   if (massChoice == 1) {
@@ -147,7 +191,7 @@ void conv_mass() {
 
 void conv_currency() {
   clearscr();
-  print_image("img/currency-converter.txt");
+  print_image("./ascii/currency.txt");
   printf("Here is a list of conversations to choose from: \n");
   printf("1) USD to Euro. \n");
   printf("2) USD to JPY. \n");
