@@ -13,6 +13,8 @@
 #define COLOR_MAGENTA "\x1b[35m"
 #define COLOR_CYAN "\x1b[36m"
 #define COLOR_RESET "\x1b[0m"
+#define COLOR_BOLD "\e[1m"
+#define COLOR_OFF "\e[m"
 
 int uchoice;
 int category;
@@ -38,9 +40,9 @@ int main() {
   print_image("./ascii/banner.txt");
   // print_image("./priv/priv.txt");
   printf(COLOR_RESET);
-  printf("\n[1] Unit Converter");
-  printf("\n[2] Currency Converter");
-  printf("\n[3] Exit");
+  printf(COLOR_BOLD "\n[1] " COLOR_OFF "Unit Converter");
+  printf(COLOR_BOLD "\n[2] " COLOR_OFF "Currency Converter");
+  printf(COLOR_BOLD "\n[3] " COLOR_OFF "Exit");
   printf("\nPlease choose a Category: ");
   scanf("%d", &category);
 
@@ -61,9 +63,9 @@ void ask_unit() {
   printf(COLOR_MAGENTA);
   print_image("./ascii/unit.txt");
   printf(COLOR_RESET);
-  printf("\n[1] Mass");
-  printf("\n[2] Lenght");
-  printf("\n[3] Temperature");
+  printf(COLOR_BOLD "\n[1]" COLOR_OFF " Mass/Weight");
+  printf(COLOR_BOLD "\n[2]" COLOR_OFF " Lenght");
+  printf(COLOR_BOLD "\n[3]" COLOR_OFF " Temperature");
   printf("\n[Please choose a unit conversion method: ");
   scanf("%d", &uchoice);
   switch (uchoice) {
@@ -82,10 +84,10 @@ void ask_unit() {
 // Function to convert temperatures
 void conv_temp() {
   float value;
-  printf("\n[1] Convert Fahrenheit to Celcius");
-  printf("\n[2] Convert Celcius to Fahrenheit");
-  printf("\n[3] Convert Fahrenheit to Kelvin");
-  printf("\n[4] Convert Celcius to Kelvin");
+  printf(COLOR_BOLD "\n[1] " COLOR_OFF "Convert Fahrenheit to Celcius");
+  printf(COLOR_BOLD "\n[2] " COLOR_OFF "Convert Celcius to Fahrenheit");
+  printf(COLOR_BOLD "\n[3] " COLOR_OFF "Convert Fahrenheit to Kelvin");
+  printf(COLOR_BOLD "\n[4] " COLOR_OFF "Convert Celcius to Kelvin");
   printf("\nPlease choose a method from above: ");
   scanf("%d", &tempChoice);
   switch (tempChoice) {
@@ -124,12 +126,12 @@ void conv_length() {
   int choice;
   float value;
   // millimeters, centimeter, meters, kilometer
-  printf("\n[1] Millimeter to Centimeter\n");
-  printf("[2] Centimeter to Meter\n");
-  printf("[3] Meter to Kilometers\n");
-  printf("[4] Inch to Foot\n");
-  printf("[5] Kilometers to Light Years\n");
-  printf("[6] Lightyears to Kilometers\n");
+  printf(COLOR_BOLD "\n[1]" COLOR_OFF " Millimeter to Centimeter\n");
+  printf(COLOR_BOLD "[2]" COLOR_OFF " Centimeter to Meter\n");
+  printf(COLOR_BOLD "[3]" COLOR_OFF " Meter to Kilometers\n");
+  printf(COLOR_BOLD "[4]" COLOR_OFF " Inch to Foot\n");
+  printf(COLOR_BOLD "[5]" COLOR_OFF " Kilometers to Light Years\n");
+  printf(COLOR_BOLD "[6]" COLOR_OFF " Lightyears to Kilometers\n");
   printf("Please choose a method: ");
   scanf("%d", &choice);
   switch (choice) {
@@ -174,10 +176,10 @@ void conv_mass() {
   float value;
   printf("\nWelcome to Mass Converter! \n");
   printf("Here is a list of conversations to choose from: \n");
-  printf("[1] ounces to pounds\n");
-  printf("[2] gram to pounds\n");
-  printf("[3] pounds to kilograms\n");
-  printf("[4] kilograms to gram\n");
+  printf(COLOR_BOLD "[1]" COLOR_OFF " ounces to pounds\n");
+  printf(COLOR_BOLD "[2]" COLOR_OFF " gram to pounds\n");
+  printf(COLOR_BOLD "[3]" COLOR_OFF " pounds to kilograms\n");
+  printf(COLOR_BOLD "[4]" COLOR_OFF " kilograms to gram\n");
   printf("Please enter your choice: ");
   scanf("%d", &massChoice);
 
@@ -219,14 +221,14 @@ void conv_currency() {
   print_image("./ascii/currency.txt");
   printf(COLOR_RESET);
   printf("Here is a list of conversations to choose from: \n");
-  printf("1) USD to Euro. \n");
-  printf("2) USD to JPY. \n");
-  printf("3) USD to RMB. \n");
-  printf("4) USD to INR. \n");
-  printf("5) INR to USD. \n");
-  printf("6) INR to JPY. \n");
-  printf("7) INR to Euro. \n");
-  printf("8) Euro to INR. \n");
+  printf(COLOR_BOLD "[1]" COLOR_OFF " USD to Euro. \n");
+  printf(COLOR_BOLD "[2]" COLOR_OFF " USD to JPY. \n");
+  printf(COLOR_BOLD "[3]" COLOR_OFF " USD to RMB. \n");
+  printf(COLOR_BOLD "[4]" COLOR_OFF " USD to INR. \n");
+  printf(COLOR_BOLD "[5]" COLOR_OFF " INR to USD. \n");
+  printf(COLOR_BOLD "[6]" COLOR_OFF " INR to JPY. \n");
+  printf(COLOR_BOLD "[7]" COLOR_OFF " INR to Euro. \n");
+  printf(COLOR_BOLD "[8]" COLOR_OFF " Euro to INR. \n");
   printf("Please choose a currency to convert to: ");
   scanf("%d", &currencyChoice);
 
