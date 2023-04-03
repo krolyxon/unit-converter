@@ -121,16 +121,18 @@ void conv_temp() {
 
 // Function to convert lenghts
 void conv_length() {
-  float choice, value;
-  int ichoice;
+  int choice;
+  float value;
   // millimeters, centimeter, meters, kilometer
   printf("\n[1] Millimeter to Centimeter\n");
   printf("[2] Centimeter to Meter\n");
   printf("[3] Meter to Kilometers\n");
+  printf("[4] Inch to Foot\n");
+  printf("[5] Kilometers to Light Years\n");
+  printf("[6] Lightyears to Kilometers\n");
   printf("Please choose a method: ");
-  scanf("%f", &choice);
-  ichoice = choice;
-  switch (ichoice) {
+  scanf("%d", &choice);
+  switch (choice) {
   case 1:
     printf("\nPlease enter the value in Milimeters: ");
     scanf("%f", &value);
@@ -146,6 +148,24 @@ void conv_length() {
     scanf("%f", &value);
     printf("Value in Kilometers: %.2f\n", value / 1000);
     break;
+  case 4:
+    printf("\nPlease enter the value in Inches: ");
+    scanf("%f", &value);
+    printf("Value in Foot is: %.2f\n", value * 0.083);
+    break;
+  case 5:
+    printf("\nPlease enter the value in Kilometers: ");
+    scanf("%f", &value);
+    printf("Value in LighYears is: %f\n", value / 9460730472580.8);
+    break;
+  case 6:
+    printf("\nPlease enter the value in Lightyears: ");
+    scanf("%f", &value);
+    printf("Value in Kilometers is: %.2f\n", value * 9460730472580.8);
+    break;
+
+  default:
+    printf("Invalid choice, please enter the correct one");
   }
 }
 
