@@ -36,7 +36,7 @@ int main() {
   clearscr();
   printf(COLOR_MAGENTA);
   print_image("./ascii/banner.txt");
-  print_image("./priv/priv.txt");
+  // print_image("./priv/priv.txt");
   printf(COLOR_RESET);
   printf("\n[1] Unit Converter");
   printf("\n[2] Currency Converter");
