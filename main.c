@@ -47,14 +47,14 @@ int main() {
     scanf("%d", &category);
 
     switch (category) {
-        case 1:
-            ask_unit();
-            break;
-        case 2:
-            conv_currency();
-            break;
-        default:
-            return 0;
+    case 1:
+        ask_unit();
+        break;
+    case 2:
+        conv_currency();
+        break;
+    default:
+        return 0;
     }
 }
 
@@ -69,15 +69,15 @@ void ask_unit() {
     printf("\n[Please choose a unit conversion method: ");
     scanf("%d", &uchoice);
     switch (uchoice) {
-        case 1:
-            conv_mass();
-            break;
-        case 2:
-            conv_length();
-            break;
-        case 3:
-            conv_temp();
-            break;
+    case 1:
+        conv_mass();
+        break;
+    case 2:
+        conv_length();
+        break;
+    case 3:
+        conv_temp();
+        break;
     }
 }
 
@@ -91,33 +91,35 @@ void conv_temp() {
     printf("\nPlease choose a method from above: ");
     scanf("%d", &tempChoice);
     switch (tempChoice) {
-        case 1:
-            printf("\nPlease enter the temperature in Fahrenheit: ");
-            scanf("%d", &fahrenheit);
-            printf("\nThe temperature in Celcius is: %f°C\n", (fahrenheit - 32) / 1.8);
-            break;
+    case 1:
+        printf("\nPlease enter the temperature in Fahrenheit: ");
+        scanf("%d", &fahrenheit);
+        printf("\nThe temperature in Celcius is: %f°C\n",
+               (fahrenheit - 32) / 1.8);
+        break;
 
-        case 2:
-            printf("\nPlease enter the temperature in Celcius: ");
-            scanf("%d", &celcius);
-            printf("\nThe temperature in Fahrenheit is: %f°F\n", (celcius * 1.8) + 32);
-            break;
+    case 2:
+        printf("\nPlease enter the temperature in Celcius: ");
+        scanf("%d", &celcius);
+        printf("\nThe temperature in Fahrenheit is: %f°F\n",
+               (celcius * 1.8) + 32);
+        break;
 
-        case 3:
-            printf("\nPlease enter the temperature in Fahrenheit: ");
-            scanf("%d", &fahrenheit);
-            printf("\nThe temperature in kelvin is: %f°K\n",
-                   (fahrenheit + 459.67) * 5 / 9);
-            break;
+    case 3:
+        printf("\nPlease enter the temperature in Fahrenheit: ");
+        scanf("%d", &fahrenheit);
+        printf("\nThe temperature in kelvin is: %f°K\n",
+               (fahrenheit + 459.67) * 5 / 9);
+        break;
 
-        case 4:
-            printf("\nPlease enter the temperature in celcius: ");
-            scanf("%d", &celcius);
-            printf("\nThe temperature in kelvin is: %f°K", (celcius + 273.15));
-            break;
+    case 4:
+        printf("\nPlease enter the temperature in celcius: ");
+        scanf("%d", &celcius);
+        printf("\nThe temperature in kelvin is: %f°K", (celcius + 273.15));
+        break;
 
-        default:
-            printf("Invalid choice, please enter the correct one");
+    default:
+        printf("Invalid choice, please enter the correct one");
     }
 }
 
@@ -135,39 +137,39 @@ void conv_length() {
     printf("Please choose a method: ");
     scanf("%d", &choice);
     switch (choice) {
-        case 1:
-            printf("\nPlease enter the value in Milimeters: ");
-            scanf("%f", &value);
-            printf("Value in Centimeter: %.2f\n", value / 10);
-            break;
-        case 2:
-            printf("\nPlease enter the value in Centimeters: ");
-            scanf("%f", &value);
-            printf("Value in Meter: %.2f\n", value / 100);
-            break;
-        case 3:
-            printf("\nPlease enter the value in Meters: ");
-            scanf("%f", &value);
-            printf("Value in Kilometers: %.2f\n", value / 1000);
-            break;
-        case 4:
-            printf("\nPlease enter the value in Inches: ");
-            scanf("%f", &value);
-            printf("Value in Foot is: %.2f\n", value * 0.083);
-            break;
-        case 5:
-            printf("\nPlease enter the value in Kilometers: ");
-            scanf("%f", &value);
-            printf("Value in LighYears is: %f\n", value / 9460730472580.8);
-            break;
-        case 6:
-            printf("\nPlease enter the value in Lightyears: ");
-            scanf("%f", &value);
-            printf("Value in Kilometers is: %.2f\n", value * 9460730472580.8);
-            break;
+    case 1:
+        printf("\nPlease enter the value in Milimeters: ");
+        scanf("%f", &value);
+        printf("Value in Centimeter: %.2f\n", value / 10);
+        break;
+    case 2:
+        printf("\nPlease enter the value in Centimeters: ");
+        scanf("%f", &value);
+        printf("Value in Meter: %.2f\n", value / 100);
+        break;
+    case 3:
+        printf("\nPlease enter the value in Meters: ");
+        scanf("%f", &value);
+        printf("Value in Kilometers: %.2f\n", value / 1000);
+        break;
+    case 4:
+        printf("\nPlease enter the value in Inches: ");
+        scanf("%f", &value);
+        printf("Value in Foot is: %.2f\n", value * 0.083);
+        break;
+    case 5:
+        printf("\nPlease enter the value in Kilometers: ");
+        scanf("%f", &value);
+        printf("Value in LighYears is: %f\n", value / 9460730472580.8);
+        break;
+    case 6:
+        printf("\nPlease enter the value in Lightyears: ");
+        scanf("%f", &value);
+        printf("Value in Kilometers is: %.2f\n", value * 9460730472580.8);
+        break;
 
-        default:
-            printf("Invalid choice, please enter the correct one");
+    default:
+        printf("Invalid choice, please enter the correct one");
     }
 }
 
@@ -184,33 +186,33 @@ void conv_mass() {
     scanf("%d", &massChoice);
 
     switch (massChoice) {
-        case 1:
-            printf("Please enter the ounce amount: ");
-            scanf("%f", &value);
-            printf("Pounds: %.2f\n", value * 0.0625);
-            break;
+    case 1:
+        printf("Please enter the ounce amount: ");
+        scanf("%f", &value);
+        printf("Pounds: %.2f\n", value * 0.0625);
+        break;
 
-        case 2:
-            printf("Please enter the gram amount: ");
-            scanf("%f", &value);
-            printf("Pounds: %.2f\n", value * 0.00220462);
-            break;
+    case 2:
+        printf("Please enter the gram amount: ");
+        scanf("%f", &value);
+        printf("Pounds: %.2f\n", value * 0.00220462);
+        break;
 
-        case 3:
-            printf("Please enter the pounds amount: ");
-            scanf("%f", &value);
-            printf("Kilogram : %.2f\n", value / 2.2046);
-            break;
+    case 3:
+        printf("Please enter the pounds amount: ");
+        scanf("%f", &value);
+        printf("Kilogram : %.2f\n", value / 2.2046);
+        break;
 
-        case 4:
-            printf("Please enter the Kilograms ammount: ");
-            scanf("%f", &value);
-            printf("%.2f Grams\n", value * 1000);
-            break;
+    case 4:
+        printf("Please enter the Kilograms ammount: ");
+        scanf("%f", &value);
+        printf("%.2f Grams\n", value * 1000);
+        break;
 
-        default:
-            printf("Please enter the correct choice. \n");
-            break;
+    default:
+        printf("Please enter the correct choice. \n");
+        break;
     }
 }
 
@@ -233,60 +235,60 @@ void conv_currency() {
     scanf("%d", &currencyChoice);
 
     switch (currencyChoice) {
-        case 1:
-            printf("Please enter the USD amount: ");
-            scanf("%d", &value);
-            printf("Euro: %.2f\n", value * 0.87);
-            break;
+    case 1:
+        printf("Please enter the USD amount: ");
+        scanf("%d", &value);
+        printf("Euro: %.2f\n", value * 0.87);
+        break;
 
-        case 2:
-            printf("Please enter the USD amount: ");
-            scanf("%d", &value);
-            printf("JPY: %.2f\n", value * 111.09);
-            break;
+    case 2:
+        printf("Please enter the USD amount: ");
+        scanf("%d", &value);
+        printf("JPY: %.2f\n", value * 111.09);
+        break;
 
-        case 3:
-            printf("Please enter the USD amount: ");
-            scanf("%d", &value);
-            printf("RMB: %.2f\n", value * 6.82);
-            break;
+    case 3:
+        printf("Please enter the USD amount: ");
+        scanf("%d", &value);
+        printf("RMB: %.2f\n", value * 6.82);
+        break;
 
-        case 4:
-            printf("Please enter the USD amount: ");
-            scanf("%d", &value);
-            printf("INR: %.2f\n", value * 81.0);
-            break;
+    case 4:
+        printf("Please enter the USD amount: ");
+        scanf("%d", &value);
+        printf("INR: %.2f\n", value * 81.0);
+        break;
 
-        case 5:
-            printf("Please enter the amount in INR: ");
-            scanf("%d", &value);
-            printf("USD: %.2f\n", value / 81.0);
-            break;
+    case 5:
+        printf("Please enter the amount in INR: ");
+        scanf("%d", &value);
+        printf("USD: %.2f\n", value / 81.0);
+        break;
 
-        case 6:
-            printf("Please enter the amount in INR: ");
-            scanf("%d", &value);
-            printf("JPY: %.2f\n", value / 1.62);
-            break;
+    case 6:
+        printf("Please enter the amount in INR: ");
+        scanf("%d", &value);
+        printf("JPY: %.2f\n", value / 1.62);
+        break;
 
-        case 7:
-            printf("Please enter the amount in INR: ");
-            scanf("%d", &value);
-            printf("Euro: %.2f\n", value / 0.01);
-            break;
+    case 7:
+        printf("Please enter the amount in INR: ");
+        scanf("%d", &value);
+        printf("Euro: %.2f\n", value / 0.01);
+        break;
 
-        case 8:
-            printf("Please enter the amount in EUR: ");
-            scanf("%d", &value);
-            printf("INR: %.2f\n", value * 89.19);
-            break;
+    case 8:
+        printf("Please enter the amount in EUR: ");
+        scanf("%d", &value);
+        printf("INR: %.2f\n", value * 89.19);
+        break;
 
-        default:
-            printf("Please enter correct choice. ");
+    default:
+        printf("Please enter correct choice. ");
     }
 }
 
-// Function to print the banner
+// Prints the provided file to stdout
 void print_image(char *filename) {
     char read_string[MAX_LEN];
     FILE *fptr = NULL;
@@ -306,6 +308,6 @@ void clearscr(void) {
     (defined(__APPLE__) && defined(__MACH__))
     system("clear");
 #else
-    #error "OS not supported."
+#error "OS not supported."
 #endif
 }
