@@ -83,7 +83,6 @@ void ask_unit() {
 
 // Function to convert temperatures
 void conv_temp() {
-    float value;
     printf(COLOR_BOLD "\n[1] " COLOR_OFF "Convert Fahrenheit to Celcius");
     printf(COLOR_BOLD "\n[2] " COLOR_OFF "Convert Celcius to Fahrenheit");
     printf(COLOR_BOLD "\n[3] " COLOR_OFF "Convert Fahrenheit to Kelvin");
