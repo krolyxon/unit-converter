@@ -10,3 +10,7 @@ $(TARGET): $(TARGET).c
 uninstall:
 	rm -f $(TARGET)
 
+clean:
+	rm -f $(TARGET)
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c
+
