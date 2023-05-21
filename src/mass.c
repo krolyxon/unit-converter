@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "utils.h"
+#include <stdio.h>
 
 // Function to convert mass
 void conv_mass() {

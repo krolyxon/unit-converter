@@ -1,22 +1,14 @@
 // ask the user for input, and let the user choose between unit or currency.
 // if chosen unit, ask the user to choose the unit to convert to
 // if chosen currency, ask the user to choose the currecy to convert to
-#include <stdio.h>
-#include <string.h>
-#include "utils.h"
 #include "currency.h"
 #include "unit.h"
-
-int uchoice;
-int category;
-
-void ask_unit();
-void conv_currency();
-void conv_mass();
-void conv_length();
-void conv_temp();
+#include "utils.h"
+#include <stdio.h>
+#include <string.h>
 
 int main() {
+    int category;
     clearscr();
     printf(COLOR_MAGENTA);
     print_image("./ascii/banner.txt");
@@ -38,8 +30,3 @@ int main() {
         return 0;
     }
 }
-
-
-
-
-
