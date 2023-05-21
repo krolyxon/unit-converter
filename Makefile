@@ -4,13 +4,13 @@ TARGET = main
 
 all:$(TARGET)
 
-$(TARGET): $(TARGET).c utils.c
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c utils.c currency.c unit.c mass.c length.c temp.c
+$(TARGET): ./src/$(TARGET).c
+	$(CC) $(CFLAGS) -o $(TARGET) ./src/$(TARGET).c ./src/utils.c ./src/currency.c ./src/unit.c ./src/mass.c ./src/length.c ./src/temp.c
 
 uninstall:
 	rm -f $(TARGET)
 
 clean:
 	rm -f $(TARGET)
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).c utils.c currency.c unit.c mass.c length.c temp.c
+	$(CC) $(CFLAGS) -o $(TARGET) ./src/$(TARGET).c ./src/utils.c ./src/currency.c ./src/unit.c ./src/mass.c ./src/length.c ./src/temp.c
 
